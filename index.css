@@ -1,0 +1,75 @@
+body {
+  width: 100%;
+}
+.nav-wrap {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow-x: scroll;
+  background-color: #fff;
+  z-index: 10;
+}
+.nav {
+  height: 42px;
+}
+.nav li .active {
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+}
+.content {
+  margin-top: 42px;
+  padding: 10px;
+  list-style: none;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.content li {
+  position: relative;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+.content li:active {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.content li.isAd:after {
+  content: '广告';
+  position: absolute;
+  right: 0;
+  bottom: 8px;
+  width: 36px;
+  height: 16px;
+  text-align: center;
+  font-size: 0.75rem;
+  line-height: 16px;
+  color: #fff;
+  background-color: #000;
+  opacity: 0.3;
+}
+.content li .desc {
+  font-size: 0.85rem;
+}
+.content .images {
+  overflow: hidden;
+}
+.content .images img {
+  float: left;
+  margin-right: 1px;
+}
+.content .images img:last-of-type {
+  margin-right: 0;
+}
+.content .image-1 img {
+  width: 100%;
+}
+.content .image-3 img {
+  width: calc((100% - 2px) / 3);
+}
+.content .more-info {
+  overflow: hidden;
+  font-size: 0.75rem;
+}
+.content .more-info .source {
+  float: left;
+}
+.content .more-info .time {
+  float: right;
+}
