@@ -105,9 +105,12 @@ $.when( $.ready ).then(function() {
     return newDom;
   };
   var renderList = function(isRefreshing) {
-    $.post('http://180.76.183.3/cunion', {
+    $.post('http://180.76.183.3/union', {
       tab: getParam('tab'),
       page: getParam('page'),
+      appid: getParam('appid'),
+      adspotid: getParam('adspotid'),
+      req_params: getParam('req_params'),
     }, function(data) {
       if (isRefreshing) {
         $('ul.content').empty();
@@ -135,15 +138,12 @@ $.when( $.ready ).then(function() {
     var target = $(event.currentTarget);
     if (target.data('clickTrack')) {
       target.data('clickTrack').forEach(function(url) {
-        $.ajax(url, {
-          type: 'GET',
-          error: function() {
-            console.log('error');
-          }
-        })
-      })
+        new Image().src = url;
+      });
+      window.setTimeout(function() {
+        window.location.href = target.data('link');
+      }, 1200);
     }
-    window.location.href = target.data('link');
   });
   $('.nav').on('click', '.nav-item > :not(.active)', function(event) {
     activateTab(event.target.parentNode.id.substr(9));
